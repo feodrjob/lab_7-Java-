@@ -1,9 +1,10 @@
 package org.example;
 
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Objects;
 
-public class Flat {
+public class Flat implements Serializable {
     private int number;
     private double square;
     private Person[] data;

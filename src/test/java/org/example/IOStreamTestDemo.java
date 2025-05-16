@@ -23,7 +23,7 @@ public class IOStreamTestDemo {
 
     @Test
     public void writeAndReadArrayChars(){
-        int[] originalArray = {1,2,3,4,5,6,7,8,9,10};
+        int[] originalArray = {1,2,3,4,5,6,7,8,9,111110};
         IOStreamDemo.writeInArrayChar(originalArray);
 
         int[]  readArray = IOStreamDemo.readAtArrayChar(originalArray.length);
@@ -33,10 +33,10 @@ public class IOStreamTestDemo {
 
     @Test
     public void readArraysWithFixStart(){
-        int[] originalArray = {1,2,3,4,5,6,7,8,9,10};
-        IOStreamDemo.writeInArrayChar(originalArray);
+        int[] originalArray = {1111,2,3,4,5,6,7,8,9,10};
+        IOStreamDemo.writeInArrayBin(originalArray);
 
-        int[]  readArray = IOStreamDemo.readAtArrayWithPosition(originalArray.length, 4);
+        int[] readArray = IOStreamDemo.readAtArrayWithPosition(originalArray.length, 6);
         System.out.println(Arrays.toString(readArray));
     }
     @Test
