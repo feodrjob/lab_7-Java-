@@ -1,7 +1,13 @@
 package org.example;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import java.io.Serializable;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
 
 public class House implements Serializable {
@@ -10,7 +16,12 @@ public class House implements Serializable {
     private Person owners;
     private Flat[] flatsList;
 
-    public House(String houseNumber, String aderess, Person owners, Flat[] flatsList) {
+
+    @JsonCreator
+    public House(@JsonProperty("houseNumber") String houseNumber,
+                 @JsonProperty("aderess") String aderess,
+                 @JsonProperty("owners") Person owners,
+                 @JsonProperty("flatsList") Flat[] flatsList) {
         this.houseNumber = houseNumber;
         this.aderess = aderess;
         this.owners = owners;
@@ -48,6 +59,7 @@ public class House implements Serializable {
     public void setFlatsList(Flat[] flatsList) {
         this.flatsList = flatsList;
     }
+
 
     @Override
     public boolean equals(Object o) {

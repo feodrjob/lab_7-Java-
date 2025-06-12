@@ -1,5 +1,9 @@
 package org.example;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+
 import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Objects;
@@ -10,7 +14,10 @@ public class Flat implements Serializable {
     private Person[] data;
 
 
-    public Flat(int number, double square, Person[] data) {
+    @JsonCreator
+    public Flat(@JsonProperty("number") int number,
+                @JsonProperty("square") double square,
+                @JsonProperty("data") Person[] data) {
         this.number = number;
         this.square = square;
         this.data = data;

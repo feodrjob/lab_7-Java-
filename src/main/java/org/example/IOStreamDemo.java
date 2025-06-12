@@ -1,7 +1,10 @@
 package org.example;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.opencsv.CSVWriter;
 import com.opencsv.CSVWriterBuilder;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.*;
 import java.nio.Buffer;
@@ -142,5 +145,23 @@ public class IOStreamDemo {
             throw new RuntimeException("Ошибка при создании файла", e);
         }
     }
+
+
+    public static boolean compareJsonStrings(String json1, String json2) {
+        try {
+            ObjectMapper objectMapper = new ObjectMapper();
+            JsonNode node1 = objectMapper.readTree(json1);
+            JsonNode node2 = objectMapper.readTree(json2);
+            return node1.equals(node2);
+        } catch (Exception e) {
+            throw new IllegalArgumentException("Некорректная JSON-строка", e);
+        }
+    }
+
+
+
+
+
+
 
 }
